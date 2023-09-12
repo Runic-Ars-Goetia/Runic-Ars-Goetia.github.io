@@ -8,6 +8,18 @@
             src: url("fonts/Runic---Ars-Goetia.ttf") format("truetype");
         }
 
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .textbox {
+            margin: 10px;
+            padding: 10px;
+        }
+
         #output {
             font-family: "Runic Ars Goetia";
         }
@@ -15,37 +27,39 @@
 </head>
 <body>
     <h1>Text to Runic Ars Goetia</h1>
-    <form>
-        <textarea id="textInput" rows="10" cols="30"></textarea>
-        <br>
-        <button type="button" onclick="translateToRunic()">Translate to Runic</button>
-        <button type="button" onclick="translateFromRunic()">Translate from Runic</button>
-    </form>
-    <p id="output"></p>
+    <div class="container">
+        <div class="textbox">
+            <label for="originalText">Original Text:</label>
+            <br>
+            <textarea id="originalText" rows="5" cols="30" oninput="translateToRunic()"></textarea>
+        </div>
+        <div class="textbox">
+            <label for="translatedText">Translated Text:</label>
+            <br>
+            <textarea id="translatedText" rows="5" cols="30" oninput="translateFromRunic()"></textarea>
+        </div>
+    </div>
 
     <script>
         function translateToRunic() {
-            var inputText = document.getElementById("textInput").value;
-            inputText = inputText.replace(/th/gi, "1");
-            inputText = inputText.replace(/ee/gi, "2");
-            inputText = inputText.replace(/ng/gi, "3");
-            inputText = inputText.replace(/ea/gi, "4");
-            inputText = inputText.replace(/st/gi, "5");
-            document.getElementById("output").innerHTML = inputText;
+            var originalText = document.getElementById("originalText").value;
+            var translatedText = originalText.replace(/th/gi, "1")
+                                             .replace(/ee/gi, "2")
+                                             .replace(/ng/gi, "3")
+                                             .replace(/ea/gi, "4")
+                                             .replace(/st/gi, "5");
+            document.getElementById("translatedText").value = translatedText;
         }
 
         function translateFromRunic() {
-            var inputText = document.getElementById("textInput").value;
-            inputText = inputText.replace(/1/g, "th");
-            inputText = inputText.replace(/2/g, "ee");
-            inputText = inputText.replace(/3/g, "ng");
-            inputText = inputText.replace(/4/g, "ea");
-            inputText = inputText.replace(/5/g, "st");
-            document.getElementById("output").innerHTML = inputText;
+            var translatedText = document.getElementById("translatedText").value;
+            var originalText = translatedText.replace(/1/g, "th")
+                                             .replace(/2/g, "ee")
+                                             .replace(/3/g, "ng")
+                                             .replace(/4/g, "ea")
+                                             .replace(/5/g, "st");
+            document.getElementById("originalText").value = originalText;
         }
     </script>
-    <form action="https://github.com/Runic-Ars-Goetia/Runic-Ars-Goetia.github.io/releases/tag/Font">
-        <input type="submit" value="Get the Font" />
-    </form>
 </body>
 </html>
