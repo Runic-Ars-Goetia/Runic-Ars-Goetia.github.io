@@ -49,21 +49,21 @@
     <script>
         function translateToRunic() {
             var originalText = document.getElementById("originalText").value;
-            var translatedText = originalText.replace(/th/gi, "§")
-                                             .replace(/ee/gi, "¬")
-                                             .replace(/ng/gi, "®")
-                                             .replace(/ea/gi, "～")
-                                             .replace(/st/gi, "ｦ");
+            var translatedText = originalText.replace(/th/gi, "\u00A7")
+                                             .replace(/ee/gi, "\u00AC")
+                                             .replace(/ng/gi, "\u00AE")
+                                             .replace(/ea/gi, "\uFF5E")
+                                             .replace(/st/gi, "\uFF66");
             document.getElementById("translatedText").value = translatedText;
         }
 
         function translateFromRunic() {
             var translatedText = document.getElementById("translatedText").value;
-            var originalText = translatedText.replace(/§/g, "th")
-                                             .replace(/¬/g, "ee")
-                                             .replace(/®/g, "ng")
-                                             .replace(/～/g, "ea")
-                                             .replace(/ｦ/g, "st");
+            var originalText = translatedText.replace(/\u00A7/g, "th")
+                                             .replace(/\u00AC/g, "ee")
+                                             .replace(/\u00AE/g, "ng")
+                                             .replace(/\uFF5E/g, "ea")
+                                             .replace(/\uFF66/g, "st");
             document.getElementById("originalText").value = originalText;
         }
     </script>
