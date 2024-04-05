@@ -1,71 +1,53 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Text to Runic Ars Goetia</title>
-    <style>
-        @font-face {
-            font-family: "Runic Ars Goetia";
-            src: url("fonts/Runic---Ars-Goetia.ttf") format("truetype");
-        }
-
-        .container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-
-        .textbox {
-            margin: 10px;
-            padding: 10px;
-        }
-
-        #output {
-            font-family: "Runic Ars Goetia";
-        }
-
-        #translatedText {
-            font-family: "Runic Ars Goetia"; /* Apply the font to the second text area */
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
 </head>
+
 <body>
-    <h1>Text to Runic Ars Goetia</h1>
+    <div class="background"></div> <!-- Background element -->
     <div class="container">
-        <div class="textbox">
-            <label for="originalText">Original Text:</label>
-            <br>
-            <textarea id="originalText" rows="5" cols="30" oninput="translateToRunic()"></textarea>
-        </div>
-        <div class="textbox">
-            <label for="translatedText">Translated Text:</label>
-            <br>
-            <textarea id="translatedText" rows="5" cols="30" oninput="translateFromRunic()"></textarea>
+        <h1 class="title">Text to Runic Ars Goetia</h1>
+        <div class="content">
+            <div class="textbox">
+                <label for="originalText">Original Text:</label>
+                <br>
+                <textarea id="originalText" rows="5" cols="30" oninput="translateToRunic()"></textarea>
+            </div>
+            <div class="textbox">
+                <label for="translatedText">Translated Text:</label>
+                <br>
+                <textarea id="translatedText" rows="5" cols="30" oninput="translateFromRunic()"></textarea>
+            </div>
+            <button class="download-btn"
+                onclick="window.location.href = 'https://github.com/Runic-Ars-Goetia/Runic-Ars-Goetia.github.io/releases/tag/v2'">Download
+                Font</button>
         </div>
     </div>
-
-    <button onclick="window.location.href = 'https://github.com/Runic-Ars-Goetia/Runic-Ars-Goetia.github.io/releases/tag/v2'">Download Font</button>
 
     <script>
         function translateToRunic() {
             var originalText = document.getElementById("originalText").value;
             var translatedText = originalText.replace(/th/gi, "\u00A7")
-                                             .replace(/ee/gi, "\u00AC")
-                                             .replace(/ng/gi, "\u00AE")
-                                             .replace(/ea/gi, "\uFF5E")
-                                             .replace(/st/gi, "\uFF66");
+                .replace(/ee/gi, "\u00AC")
+                .replace(/ng/gi, "\u00AE")
+                .replace(/ea/gi, "\uFF5E")
+                .replace(/st/gi, "\uFF66");
             document.getElementById("translatedText").value = translatedText;
         }
 
         function translateFromRunic() {
             var translatedText = document.getElementById("translatedText").value;
             var originalText = translatedText.replace(/\u00A7/g, "th")
-                                             .replace(/\u00AC/g, "ee")
-                                             .replace(/\u00AE/g, "ng")
-                                             .replace(/\uFF5E/g, "ea")
-                                             .replace(/\uFF66/g, "st");
+                .replace(/\u00AC/g, "ee")
+                .replace(/\u00AE/g, "ng")
+                .replace(/\uFF5E/g, "ea")
+                .replace(/\uFF66/g, "st");
             document.getElementById("originalText").value = originalText;
         }
     </script>
 </body>
+
 </html>

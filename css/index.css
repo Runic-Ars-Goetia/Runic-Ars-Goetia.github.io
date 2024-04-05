@@ -1,0 +1,74 @@
+/* CSS to style the background */
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("/img/bg.jpg");
+    background-size: cover;
+}
+
+/* CSS to style the container */
+.container {
+    position: relative;
+    /* Make the container positioned relative to its parent */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.5);
+    /* White color with 50% opacity */
+    border-radius: 20px;
+    /* Rounded corners */
+    padding: 20px;
+    width: 70%;
+    /* Adjust the width as needed */
+    max-width: 600px;
+    /* Set a maximum width to avoid the container becoming too wide */
+    margin: auto;
+    /* Center the container horizontally */
+    position: absolute;
+    /* Position the container absolutely */
+    top: 50%;
+    /* Move the container down by 50% of the viewport height */
+    left: 50%;
+    /* Move the container right by 50% of the viewport width */
+    transform: translate(-50%, -50%);
+    /* Use transform to center the container */
+}
+
+/* CSS to style the title */
+.title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* CSS to style the content */
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* CSS to style the textboxes */
+.textbox {
+    margin: 10px;
+    padding: 10px;
+}
+
+/* CSS to style the download button with linear gradient background */
+.download-btn {
+    margin-top: 20px;
+    background-image: linear-gradient(to right, #0074D9, #7FDBFF);
+    /* Blue to Teal gradient */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 12px;
+}
