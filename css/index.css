@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "Runic Ars Goetia";
+    src: url("fonts/Runic---Ars-Goetia.ttf") format("truetype");
+}
+
 /* CSS to style the background */
 .background {
     position: fixed;
@@ -56,6 +61,11 @@
 .textbox {
     margin: 10px;
     padding: 10px;
+}
+
+/* translated text */
+#translatedText {
+    font-family: "Runic Ars Goetia";
 }
 
 /* CSS to style the download button with linear gradient background */
